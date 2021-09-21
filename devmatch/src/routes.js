@@ -15,11 +15,11 @@ function Routes(){
         <Router>
             <Switch>
                 <Route path="/" exact component={ Main } />
-                <Route path="/signIn"  component={ SignIn } />
-                <Route path="/signUp"  component={ SignUp } />
+                <Route path="/sign-in"  component={ SignIn } />
+                <Route path="/sign-up"  component={ SignUp } />
             </Switch>
         </Router>
-    )
+    );
 }
 
 export default Routes;

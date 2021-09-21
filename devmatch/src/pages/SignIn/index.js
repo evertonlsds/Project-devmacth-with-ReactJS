@@ -1,6 +1,6 @@
 import './styles.css'
 import '../../styles/form.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SignIn() {
     return (
@@ -8,7 +8,7 @@ function SignIn() {
             <form className=" form form-sign-in">
                <div className= "text-center mb-lg">
                    <h1>Entrar</h1>
-                   <Link to="/sing-up">Cadastre-se</Link>
+                   <Link to="/sign-up">Cadastre-se</Link>
                 </div>
                 <div>
                    <div >
