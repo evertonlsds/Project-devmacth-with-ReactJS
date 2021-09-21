@@ -1,6 +1,7 @@
 import './styles.css'
 import '../../styles/form.css'
 import { Link } from 'react-router-dom'
+import AllRightReserved from '../../components/AllRigthReserved'
 
 function SignIn() {
     return (
@@ -11,11 +12,11 @@ function SignIn() {
                    <Link to="/sign-up">Cadastre-se</Link>
                 </div>
                 <div>
-                   <div >
+                <div className="flex-column">
                        <label htmlFor="email">E-mail</label>
                        <input id="email" type="text" placeholder="Digite seu e-mail"/>
                    </div>
-                   <div >
+                   <div className="flex-column">
                        <label htmlFor="password">Senha</label>
                        <input id="password" type="password" placeholder="Digite sua senha"/>
                    </div>
@@ -26,7 +27,7 @@ function SignIn() {
                    </div>
                 </div>
                 <Link to="/recovery-password" className="my-lg">Esqueceu sua senha?</Link> 
-                <span className="light-label">@2021 Todos os Direitos Reservados</span>
+                <AllRightReserved/>
             </form>
         </div>
     )
