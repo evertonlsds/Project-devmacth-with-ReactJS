@@ -13,7 +13,11 @@ import SignUp from './pages/SignUp';
 function Routes(){
     return (
         <Router>
-            <Switch></Switch>
+            <Switch>
+                <Route path="/" exact component={ Main } />
+                <Route path="/signIn"  component={ SignIn } />
+                <Route path="/signUp"  component={ SignUp } />
+            </Switch>
         </Router>
     )
 }
