@@ -1,5 +1,6 @@
 import './styles.css'
 import '../../styles/form.css'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import AllRightReserved from '../../components/AllRigthReserved';
 import InputPassword from '../../components/InputPassword';
@@ -7,7 +8,7 @@ import InputPassword from '../../components/InputPassword';
 
 
 function SignIn() {
-    
+    const [password, setPassword] = useState('');
     return (
         <div className = "container-form">
             <form className=" form form-sign-in">
@@ -21,7 +22,13 @@ function SignIn() {
                        <input id="email" type="text" placeholder="Digite seu e-mail"/>
                    </div>
                    
-                    <InputPassword/>                  
+                    <InputPassword
+                    label="senha"
+                    placeholder="Digite sua Senha"
+                    value={password}
+                    setValue={setPassword}
+
+                    />                  
 
                    <button className="btn-dark-blue">Entrar</button>
                    <div className="flex-row items-center">

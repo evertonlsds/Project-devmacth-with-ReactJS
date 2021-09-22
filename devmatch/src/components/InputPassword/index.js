@@ -4,13 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
-function InputPassword () {
+function InputPassword ({label, placeholder, value, setValue}) {
     const [showPassword, setShowPassword] = useState(false)
 
     return(
         <div className="flex-column input-password">
-            <label htmlFor="password">Senha</label>
-            <input id="password" type={showPassword ? 'text' : 'password'} placeholder="Digite sua senha"/>
+            <label htmlFor="password">{label}</label>
+            <input id="password"
+             type={showPassword ? 'text' : 'password'}
+              placeholder={placeholder}
+              value={value}
+              onChange= {(e) => setValue(e.target.value)}
+              />
             <FontAwesomeIcon 
               icon={showPassword ? faEye : faEyeSlash} 
               className= "eye-password" 
