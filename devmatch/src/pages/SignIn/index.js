@@ -27,7 +27,6 @@ function SignIn() {
                     placeholder="Digite sua Senha"
                     value={password}
                     setValue={setPassword}
-
                     />                  
 
                    <button className="btn-dark-blue">Entrar</button>

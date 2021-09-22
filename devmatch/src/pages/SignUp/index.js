@@ -1,9 +1,23 @@
-import './styles.css'
-import '../../styles/form.css'
-import {Link} from 'react-router-dom'
-import AllRightReserved from '../../components/AllRigthReserved'
+import './styles.css';
+import '../../styles/form.css';
+import {Link} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import AllRightReserved from '../../components/AllRigthReserved';
+import InputPassword from '../../components/InputPassword';
+import {getCityByCEP} from '../../services/viaCEP';
 
 function SignUp() {
+
+
+    useEffect(() => {
+        getCityByCEP('40230680')
+        }, [])
+
+
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [cep, setCep] = useState('');
+    const [city, setCity] = useState('');
     return (
         <div className = "container-form">
             <form className=" form form-sign-up">
@@ -19,12 +33,20 @@ function SignUp() {
                    </div>
                    <div className="flex-column">
                        <label htmlFor="cep">CEP</label>
-                       <input id="cep" type="text" placeholder="Digite sua CEP"/>
+                       <input 
+                       id="cep" 
+                       type="text" 
+                       placeholder="Digite sua CEP"
+                       value={cep}
+                       onChange={(e) => setCep(e.target.value)}
+                       />
                    </div>
-                   <div className="flex-column">
-                       <label htmlFor="password">Senha</label>
-                       <input id="password" type="password" placeholder="Digite sua senha"/>
-                   </div>
+                   <InputPassword
+                    label="Senha"
+                    placeholder="Digite sua Senha"
+                    value={password}
+                    setValue={setPassword}
+                    />   
                   </div>
                   <div>
                    <div className="flex-column" >
@@ -33,12 +55,20 @@ function SignUp() {
                    </div>
                    <div className="flex-column">
                        <label htmlFor="city">Cidade</label>
-                       <input id="city" type="text" placeholder="Digite sua Cidade"/>
+                       <input 
+                        id="city"
+                        type="text"
+                        placeholder="Digite sua cidade"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        />
                    </div>
-                   <div className="flex-column">
-                       <label htmlFor="confirm-password">Confirme sua senha</label>
-                       <input id="confirm-password" type="password" placeholder="Confirme sua senha novamente"/>
-                   </div>
+                   <InputPassword
+                     label="Confirme sua senha"
+                     placeholder="Confirme sua senha"
+                     value={confirmPassword}
+                     setValue={setConfirmPassword}
+                    />  
                   </div>
                   
                 </div>
