@@ -7,18 +7,33 @@ import InputPassword from '../../components/InputPassword';
 import {getCityByCEP} from '../../services/viaCEP';
 
 function SignUp() {
-
-
-    useEffect(() => {
-        getCityByCEP('40230680')
-        }, [])
-
-
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [cep, setCep] = useState('');
     const [city, setCity] = useState('');
-    return (
+
+    async function loadCityByCEP(myCep) {
+       const cityByCep = await getCityByCEP(myCep)
+       setCity(cityByCep)
+        
+    }
+
+    useEffect(() => {
+
+        if(cep.indexOf('-') !== -1){
+          if(cep.length === 9) {
+            loadCityByCEP(cep);
+          }
+          return;
+        }
+
+        if(cep.length === 8) {
+          loadCityByCEP(cep);
+        }
+        
+    }, [cep])
+
+      return (
         <div className = "container-form">
             <form className=" form form-sign-up">
                <div className= "text-center mb-lg">
