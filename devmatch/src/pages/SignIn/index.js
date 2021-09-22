@@ -1,14 +1,13 @@
 import './styles.css'
 import '../../styles/form.css'
-import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import AllRightReserved from '../../components/AllRigthReserved';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import InputPassword from '../../components/InputPassword';
+
 
 
 function SignIn() {
-    const [showPassword, setShowPassword] = useState(false)
+    
     return (
         <div className = "container-form">
             <form className=" form form-sign-in">
@@ -22,15 +21,7 @@ function SignIn() {
                        <input id="email" type="text" placeholder="Digite seu e-mail"/>
                    </div>
                    
-                   <div className="flex-column input-password">
-                       <label htmlFor="password">Senha</label>
-                       <input id="password" type={showPassword ? 'text' : 'password'} placeholder="Digite sua senha"/>
-                       <FontAwesomeIcon 
-                       icon={showPassword ? faEye : faEyeSlash} 
-                       className= "eye-password" 
-                       onClick={() => setShowPassword(!showPassword)}
-                       size='lg'  />
-                   </div>
+                    <InputPassword/>                  
 
                    <button className="btn-dark-blue">Entrar</button>
                    <div className="flex-row items-center">
