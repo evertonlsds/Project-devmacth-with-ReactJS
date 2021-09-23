@@ -1,5 +1,5 @@
 import './styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProfileIcon from '../../assets/profile-icon.svg';
 import CloseIcon from '../../assets/close-icon.svg';
 import{ useHistory, useLocation} from 'react-router-dom';
@@ -17,6 +17,13 @@ function ProfileBar() {
         }
         history.push('/profile')
     }
+
+    useEffect(() => {
+        if(location.pathname === '/profile'){
+            setOpen(true);
+        }
+          
+    }, [location])
 
     return(
         <div>

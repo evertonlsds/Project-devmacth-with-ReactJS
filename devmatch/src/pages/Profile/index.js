@@ -1,10 +1,11 @@
 import "./styles.css";
+import ProfileBar from "../../components/ProfileBar";
 
 
 
 function Profile(){
     return(
-        <h1>profile</h1>
+       <ProfileBar/>
     )
 }
 
