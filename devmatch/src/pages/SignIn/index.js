@@ -10,7 +10,7 @@ import InputPassword from '../../components/InputPassword';
 function SignIn() {
     const [password, setPassword] = useState('');
     return (
-        <div className = "container-form">
+        <div className = "container-form background-dark-form">
             <form className=" form form-sign-in">
                <div className= "text-center mb-lg">
                    <h1>Entrar</h1>

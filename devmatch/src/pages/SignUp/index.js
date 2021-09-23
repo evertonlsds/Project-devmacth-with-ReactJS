@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import AllRightReserved from '../../components/AllRigthReserved';
 import InputPassword from '../../components/InputPassword';
 import {getCityByCEP} from '../../services/viaCEP';
+import {  toast } from 'react-toastify';
 
 function SignUp() {
     const [password, setPassword] = useState('');
@@ -13,12 +14,23 @@ function SignUp() {
     const [city, setCity] = useState('');
 
     async function loadCityByCEP(myCep) {
-       const cityByCep = await getCityByCEP(myCep)
+       const cityByCep = await getCityByCEP(myCep);
+       if(!cityByCep){
+         toast.error("CEP inválido", {
+          position: "top-center",
+          autoClose: 3000,
+          });
+         return;
+       }
        setCity(cityByCep)
         
     }
 
     useEffect(() => {
+
+        if(cep.length < 9 && city.length > 0){
+          setCity("")
+        }
 
         if(cep.indexOf('-') !== -1){
           if(cep.length === 9) {
@@ -34,7 +46,7 @@ function SignUp() {
     }, [cep])
 
       return (
-        <div className = "container-form">
+        <div className = "container-form background-dark-form">
             <form className=" form form-sign-up">
                <div className= "text-center mb-lg">
                    <h1>Cadastre-se</h1>
@@ -53,6 +65,7 @@ function SignUp() {
                        type="text" 
                        placeholder="Digite sua CEP"
                        value={cep}
+                       maxLength={9}
                        onChange={(e) => setCep(e.target.value)}
                        />
                    </div>

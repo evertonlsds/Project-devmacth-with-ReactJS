@@ -1,10 +1,11 @@
 
 import './styles.css';
+import ProfileBar from '../../components/ProfileBar';
 
 function Main() {
   return (
-    <div className="container-main">
-     <h1>Main</h1>
+    <div className="container-main ">
+     <ProfileBar/>
     </div>
   );
 }
