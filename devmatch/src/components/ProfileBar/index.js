@@ -7,9 +7,25 @@ import{ useHistory, useLocation} from 'react-router-dom';
 
 function ProfileBar() {
     const [open, setOpen] = useState(false)
+    const location = useLocation();
+    const history = useHistory()
+
+    function handleOpenProfilePage(){
+        if(location.pathname === '/profile'){
+            history.push('/')
+            return
+        }
+        history.push('/profile')
+    }
+
     return(
         <div>
-            <img className="icon" src={open ? CloseIcon : ProfileIcon} alt="icon"/>
+            <img 
+            className="icon" 
+            src={open ? CloseIcon : ProfileIcon} 
+            alt="icon"
+            onClick={() => handleOpenProfilePage()}
+            />
         </div>
 
     )
